@@ -268,7 +268,7 @@ le="padding-left:30px;font-size:1rem;" onclick="toView(0,586)"> --<li class="fas
     hallo </span><span class="hljs-template-variable">{{nama_user}}</span><span class="xml">
 <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
-app.state.nama_user = <span class="hljs-string">"daberdev"</span>;
+app.<span class="hljs-keyword">state</span>.nama_user = <span class="hljs-string">"daberdev"</span>;
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
 </code></pre>
 <h5 id="-local-state">📎 local state</h5>
@@ -279,21 +279,20 @@ mengakses component secara spesisifik yaitu dengan menggunakan <code>@id</code> 
     hallo </span><span class="hljs-template-variable">{{nama_user}}</span><span class="xml">
 <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
-find(<span class="hljs-string">"message"</span>).state.nama_user = <span class="hljs-string">"daberdev"</span>;
+<span class="hljs-function"><span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-string">"message"</span>)</span></span>.<span class="hljs-keyword">state</span>.nama_user = <span class="hljs-string">"daberdev"</span>;
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
 </code></pre>
 <h3 id="-event">⚙ event</h3>
 <p>seleku juga memiliki event handling dengan melakukan set event terhadap element untuk melakukan set event ke element di gunakan method </p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-title">find</span><span class="hljs-params">(args: id)</span></span><span class="hljs-selector-class">.event</span><span class="hljs-selector-class">.event_name</span>
-</code></pre>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-title">find</span><span class="hljs-params">(args: id)</span></span>.<span class="hljs-keyword">event</span>.event_name</code></pre>
 <p>contoh</p>
 <pre><code class="lang-html"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> @<span class="hljs-attr">id</span>=<span class="hljs-string">"message"</span> <span class="hljs-attr">props</span>=<span class="hljs-string">"nama_user"</span> <span class="hljs-attr">event</span>=<span class="hljs-string">"onclick"</span>&gt;</span>
     hallo </span><span class="hljs-template-variable">{{nama_user}}</span><span class="xml">
 <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-find(<span class="hljs-string">"message"</span>).state.nama_user = <span class="hljs-string">"daberdev"</span>;
-find(<span class="hljs-string">"message"</span>).event.onclick = <span class="hljs-function">(<span class="hljs-params">args</span>)=&gt;</span>{
-    alert(<span class="hljs-string">"aku di click"</span>);
+<span class="hljs-function"><span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-string">"message"</span>)</span></span>.<span class="hljs-keyword">state</span>.nama_user = <span class="hljs-string">"daberdev"</span>;
+<span class="hljs-function"><span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-string">"message"</span>)</span></span>.<span class="hljs-keyword">event</span>.onclick = <span class="hljs-function">(<span class="hljs-params">args</span>)=&gt;</span>{
+    <span class="hljs-function"><span class="hljs-title">alert</span>(<span class="hljs-string">"aku di click"</span>)</span>;
 }
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
 </code></pre>
@@ -308,13 +307,13 @@ find(<span class="hljs-string">"message"</span>).event.onclick = <span class="hl
 <h3 id="-dynamic-attribute">💧 dynamic attribute</h3>
 <p>seleku memiliki dynamic attribute ( attribute yang dapat berubah - ubah ) dengan cara memberikan binding ke pada attribute</p>
 <p>contoh</p>
-<pre><code class="lang-html"><span class="hljs-variable">&lt;h1 @id="message" props="nama_user card" class="{{card}}"&gt;</span>
-    hallo {{nama_user}}
-&lt;/h1&gt;
-<span class="hljs-variable">&lt;script&gt;</span>
-find(<span class="hljs-string">"message"</span>).<span class="hljs-keyword">state</span>.nama_user = <span class="hljs-string">"daberdev"</span>;
-find(<span class="hljs-string">"message"</span>).<span class="hljs-keyword">state</span>.card = <span class="hljs-string">"box"</span>;
-&lt;/script&gt;
+<pre><code class="lang-html"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> @<span class="hljs-attr">id</span>=<span class="hljs-string">"message"</span> <span class="hljs-attr">props</span>=<span class="hljs-string">"nama_user card"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"<span class="hljs-template-variable">{{card}}</span>"</span>&gt;</span>
+    hallo <span class="hljs-template-variable">{{nama_user}}</span>
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span></span>
+<span class="hljs-function"><span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-string">"message"</span>)</span></span>.<span class="hljs-keyword">state</span>.nama_user = <span class="hljs-string">"daberdev"</span>;
+<span class="hljs-function"><span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-string">"message"</span>)</span></span>.<span class="hljs-keyword">state</span>.card = <span class="hljs-string">"box"</span>;
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
 </code></pre>
 <h3 id="-seleku-special-component">✨ seleku special component</h3>
 <p>seleku juga memiliki beberapa component bawan yaitu component kondisi dan komponent perulangan</p>
@@ -323,12 +322,12 @@ find(<span class="hljs-string">"message"</span>).<span class="hljs-keyword">stat
 <h5 id="-looping-component"># looping component</h5>
 <p>seleku juga memiliki looping component yaitu component yang akan membuat element berdasarkan list atau array untuk penggunaan yaitu dengan cara memberikan attribute <code>loop="x of nama props"</code> dan menerapkan props pada component dengan tipe array dan membuat child component dengan attribute dari hasil looping <code>x</code></p>
 <p>contoh</p>
-<pre><code class="lang-html"> &lt;<span class="hljs-selector-tag">ul</span> @id=<span class="hljs-string">"username"</span> props=<span class="hljs-string">"list_user"</span> loop=<span class="hljs-string">"nama of list_user"</span>&gt;
-    &lt;<span class="hljs-selector-tag">li</span> props=<span class="hljs-string">"nama"</span>&gt;nama user {{nama}}&lt;/li&gt;
- &lt;/ul&gt;
-&lt;script&gt;
-<span class="hljs-function"><span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-string">"username"</span>)</span></span><span class="hljs-selector-class">.state</span><span class="hljs-selector-class">.list_user</span> = [<span class="hljs-string">"daberdev"</span>,<span class="hljs-string">"seleku"</span>,<span class="hljs-string">"js"</span>]
-&lt;/script&gt;
+<pre><code class="lang-html"> &lt;<span class="hljs-selector-tag">ul</span> @<span class="hljs-attr">id</span>=<span class="hljs-string">"username"</span> <span class="hljs-attr">props</span>=<span class="hljs-string">"list_user"</span> <span class="hljs-attr">loop</span>=<span class="hljs-string">"nama of list_user"</span>&gt;
+    &lt;<span class="hljs-selector-tag">li</span> props=<span class="hljs-string">"nama"</span>&gt;nama user <span class="hljs-template-variable">{{nama}}</span>&lt;/<span class="hljs-selector-tag">li</span>&gt;
+ &lt;/<span class="hljs-selector-tag">ul</span>&gt;
+&lt;<span class="hljs-selector-tag">script</span>&gt;
+<span class="hljs-function"><span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-string">"username"</span>)</span></span>.<span class="hljs-keyword">state</span>.list_user = [<span class="hljs-string">"daberdev"</span>,<span class="hljs-string">"seleku"</span>,<span class="hljs-string">"js"</span>]
+&lt;/<span class="hljs-selector-tag">script</span>&gt;
 </code></pre>
 <h5 id="-import-component"># import component</h5>
 <p>seleku juga memungkinkan anda yang ingin mengimport component dengan menggunakan <code>#import</code> di bagian header file, component yang di import menggunakan import <code>#import</code> tidak boleh memiliki export default, dan <code>#import</code> bisa jyga di gunakan untuk mengimport seperti <code>import</code> pada es 6
@@ -336,14 +335,14 @@ contoh</p>
 <pre><code class="lang-js"><span class="hljs-meta">#import {</span>
  card
 } from <span class="hljs-string">"card.selekux"</span>
-<span class="hljs-params">&lt;div&gt;</span>
- <span class="hljs-params">&lt;card&gt;</span><span class="hljs-params">&lt;/card&gt;</span>
-<span class="hljs-params">&lt;/div&gt;</span>
+<span class="hljs-params">&lt;<span class="hljs-selector-tag">div</span>&gt;</span>
+ <span class="hljs-params">&lt;<span class="hljs-selector-tag">card</span>&gt;</span><span class="hljs-params">&lt;/<span class="hljs-selector-tag">card</span>&gt;</span>
+<span class="hljs-params">&lt;/<span class="hljs-selector-tag">div</span>&gt;</span>
 </code></pre>
 <p>file yang di import harus bertipekan <code>selekux</code> yang berarti merupakan component untuk seleku</p>
 </div>
 
 
-        </div>
+        </div> <span class="hljs"></span>
         <script src="index.js"></script></body>
 </html>
